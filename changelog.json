@@ -1,69 +1,41 @@
 {
   "versions": [
     {
-      "id": "V3.6.0",
-      "date": "May 20, 2025",
+      "id": "V3.7.9",
+      "date": "April 5, 2025",
       "logs": [
         {
-          "title": "Testing Logs:",
+          "title": "Main Systen Changes:",
           "items": [
-            "Hello from Paws!!",
-            "Pluto on the toppie!"
+            "Removed Experimental Github Update Detection System.",
+            "Stablize the game loader ui bugging sometimes and sometimes showing, fixed.",
+            "Decreased optimization level due to bugs."
           ]
         },
         {
-          "title": "Yugar Logs!:",
+          "title": "Blade Ball Changes:",
           "items": [
-            "Flicked Penus",
-            "Smegma mode!"
+            "Due to unclear stuff I changed the description abit and fixed ui vanishing when respawning.",
+            "Automation of detecting whenever the use of lite or normal."
           ]
         }
       ],
-      "notes": "We're Preparing for V3.8.0"
-    },
-
-    {
-      "id": "V3.1.0",
-      "date": "May 15, 2025",
-      "logs": [
-        {
-          "title": "Game Loader Logs:",
-          "items": [
-            "Fixed asynchronous load bug",
-            "Optimized loader cache"
-          ]
-        },
-        {
-          "title": "Blade Ball Logs:",
-          "items": [
-            "Added new cinematics",
-            "Patched crash on level 3"
-          ]
-        }
-      ],
-      "notes": "Performance improvements expected to reduce load times by ~20%. Ensure to test on lower-end hardware."
+      "notes": "Where click sound? idk what yall talking abt blade ball being laggy, works fine for me."
     },
     
     {
-      "id": "V3.0.0",
-      "date": "May 10, 2025",
+      "id": "V3.7.8",
+      "date": "April 2, 2025",
       "logs": [
         {
-          "title": "Game Loader Logs:",
+          "title": "Main Systen Changes:",
           "items": [
-            "Loasnffd",
-            "Optimized your ass"
-          ]
-        },
-        {
-          "title": "Indian Logs:",
-          "items": [
-            "Added new killing effects",
-            "Patched dandruff"
+            "Added an Experimental Github Update Detection System. (Checks every 3 minutes)",
+            "Added Revert Version Feature. this reverts to the last update of Plutonium, this may be used if your having issues with the present."
           ]
         }
       ],
-      "notes": "Black Lives Matter!."
+      "notes": "Thanks, April fools event shall continue to haunt you, it'll be back in 2026 dw, when must the rewrite wave happen though.. Click sounds will be added soon."
     }
   ]
 }
