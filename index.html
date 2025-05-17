@@ -7,30 +7,28 @@
   <!-- Poppins Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* Reset & Base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #121212;
+      background-color: #0a0a0a; /* Darker background */
       color: #e0e0e0;
       overflow-x: hidden;
     }
     a { text-decoration: none; color: inherit; }
 
-    /* Navbar (Top Bar) */
     .navbar {
       display: flex;
       align-items: center;
       padding: 1rem 1.5rem;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background-color: #222; /* Darker navbar */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* stronger shadow */
       z-index: 20;
     }
     .nav-title {
       margin-left: 1rem;
       font-size: 1.25rem;
       font-weight: 600;
-      color: #333;
+      color: #ddd; /* lighter text on dark bg */
     }
     .burger {
       display: flex;
@@ -44,29 +42,30 @@
     .burger span {
       display: block;
       height: 3px;
-      background-color: #333;
+      background-color: #ddd; /* lighter burger bars */
       border-radius: 2px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
     }
     .burger.open span:nth-child(1) {
       transform: translateY(6px) rotate(45deg);
+      background-color: #ddd;
     }
     .burger.open span:nth-child(2) {
       opacity: 0;
     }
     .burger.open span:nth-child(3) {
       transform: translateY(-6px) rotate(-45deg);
+      background-color: #ddd;
     }
 
-    /* Side Drawer */
     .side-menu {
       position: fixed;
       top: 0;
       left: 0;
       height: 100%;
       width: 300px;
-      background-color: #1e1e1e;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+      background-color: #121212; /* slightly lighter than body */
+      box-shadow: 3px 0 15px rgba(0, 0, 0, 0.9); /* deeper side shadow */
       transform: translateX(-100%);
       transition: transform 0.3s ease;
       padding-top: 3rem;
@@ -77,8 +76,6 @@
     .side-menu.active {
       transform: translateX(0);
     }
-
-    /* Versions header */
     .side-menu-header {
       color: #bbb;
       font-weight: 600;
@@ -86,10 +83,10 @@
       padding: 1rem 1.5rem 0.5rem 1.5rem;
       border-bottom: 1px solid #333;
       user-select: none;
-      margin-bottom: 0; /* Remove gap below */
+      margin-bottom: 0;
       flex-shrink: 0;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
     }
-
     .side-menu ul {
       list-style: none;
       padding: 0;
@@ -107,21 +104,21 @@
       transition: background 0.2s ease;
     }
     .side-menu li a:hover {
-      background-color: #333;
+      background-color: #222;
     }
     .side-menu li a.active {
-      background-color: #444;
+      background-color: #333;
       font-weight: 600;
+      box-shadow: inset 4px 0 6px rgba(255,255,255,0.1);
     }
 
-    /* Overlay */
     .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.85); /* darker overlay */
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.3s ease;
@@ -132,7 +129,6 @@
       visibility: visible;
     }
 
-    /* Main content */
     main {
       padding: 2rem 1.5rem;
     }
@@ -147,14 +143,15 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: #1e1e1e;
-      border: 1px solid #333;
+      background: #1a1a1a; /* darker entry background */
+      border: 1px solid #222;
       border-radius: 8px;
       padding: 1rem 1.5rem;
       opacity: 0;
       transform: translateX(-20px);
       transition: opacity 0.5s ease, transform 0.5s ease;
       pointer-events: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8); /* stronger shadow for card */
     }
     .entry.active {
       opacity: 1;
@@ -173,16 +170,15 @@
     .entry ul {
       list-style: disc inside;
     }
-    /* Separator */
     .separator {
       height: 1px;
-      background: #333;
+      background: #222;
       margin: 1rem 0;
     }
-    /* Notes section */
     .entry .notes {
       margin-top: 1rem;
-      color: #aaa;
+      color: #999;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
     }
     .entry .notes h4 {
       margin-bottom: 0.5rem;
@@ -192,19 +188,38 @@
     .entry .notes p {
       color: #888;
     }
+
+    /* Log item animation */
+    .log-item {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.4s ease forwards;
+      animation-delay: calc(0.05s * var(--i));
+    }
+
+    .entry:not(.active) .log-item {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: none;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="burger" id="burger"><span></span><span></span><span></span></div>
-    <div class="nav-title">Plutonium.lua | Changelogs</div>
+    <div class="nav-title">Plutonium.lua | Changelogs <span id="versions-title" class="versions-title">Versions</span></div>
   </nav>
 
   <aside class="side-menu" id="side-menu" aria-label="Versions menu">
     <div class="side-menu-header">Versions</div>
-    <ul id="version-list">
-      <!-- versions will be dynamically loaded here -->
-    </ul>
+    <ul id="version-list"></ul>
   </aside>
 
   <div class="overlay" id="overlay"></div>
@@ -218,9 +233,8 @@
     const overlay = document.getElementById('overlay');
     const changelogContainer = document.querySelector('.changelog');
     const versionList = document.getElementById('version-list');
-    const fadeDuration = 500; // ms
+    const fadeDuration = 500;
 
-    // Toggle menu visibility
     function toggleMenu() {
       const isOpen = sideMenu.classList.toggle('active');
       burger.classList.toggle('open', isOpen);
@@ -228,7 +242,6 @@
       document.body.classList.toggle('no-scroll', isOpen);
     }
 
-    // Close menu
     function closeMenu() {
       sideMenu.classList.remove('active');
       burger.classList.remove('open');
@@ -236,30 +249,31 @@
       document.body.classList.remove('no-scroll');
     }
 
-    // Clear active link highlights
     function clearActiveLinks() {
       versionList.querySelectorAll('a').forEach(a => a.classList.remove('active'));
     }
 
-    // Show changelog entry by ID
     function showEntry(id) {
       const current = document.querySelector('.entry.active');
-      if (current) {
+      const next = document.getElementById(id);
+      if (current && current !== next) {
         current.classList.remove('active');
         setTimeout(() => {
-          const next = document.getElementById(id);
           if (next) next.classList.add('active');
         }, fadeDuration);
-      } else {
-        const next = document.getElementById(id);
-        if (next) next.classList.add('active');
+      } else if (!current && next) {
+        next.classList.add('active');
+      } else if (current === next) {
+        next.classList.remove('active');
+        void next.offsetWidth;
+        next.classList.add('active');
       }
+
       clearActiveLinks();
       const link = versionList.querySelector(`a[data-target="${id}"]`);
       if (link) link.classList.add('active');
     }
 
-    // Fetch and render changelogs & versions list
     async function fetchAndRenderChangelogs() {
       const response = await fetch('changelog.json');
       const data = await response.json();
@@ -268,13 +282,11 @@
       versionList.innerHTML = '';
 
       data.versions.forEach((version, index) => {
-        // Add side menu item
         const li = document.createElement('li');
         const isActive = index === 0 ? 'active' : '';
         li.innerHTML = `<a href="#${version.id}" data-target="${version.id}" class="${isActive}">${index === 0 ? version.id + ' (Latest)' : version.id}</a>`;
         versionList.appendChild(li);
 
-        // Add changelog entry
         const section = document.createElement('section');
         section.id = version.id;
         section.className = 'entry' + (index === 0 ? ' active' : '');
@@ -282,7 +294,7 @@
           <h3>${version.id} <small>— ${version.date}</small></h3>
           ${version.logs.map(group => `
             <h4>${group.title}</h4>
-            <ul>${group.items.map(item => `<li>${item}</li>`).join('')}</ul>
+            <ul>${group.items.map((item, i) => `<li class="log-item" style="--i:${i}">${item}</li>`).join('')}</ul>
           `).join('')}
           <div class="separator"></div>
           <div class="notes">
@@ -293,7 +305,6 @@
         changelogContainer.appendChild(section);
       });
 
-      // Attach click listeners (using event delegation)
       versionList.addEventListener('click', e => {
         if (e.target && e.target.matches('a[data-target]')) {
           e.preventDefault();
@@ -304,11 +315,8 @@
       });
     }
 
-    // Event listeners for burger and overlay
     burger.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', closeMenu);
-
-    // Load changelogs on page load
     fetchAndRenderChangelogs();
   </script>
 </body>
