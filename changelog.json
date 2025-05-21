@@ -5,7 +5,7 @@
       "date": "April 5, 2025",
       "logs": [
         {
-          "title": "Main Systen Changes:",
+          "title": "Main System Changes:",
           "items": [
             "Removed Experimental Github Update Detection System.",
             "Stablize the game loader ui bugging sometimes and sometimes showing, fixed.",
@@ -28,7 +28,7 @@
       "date": "April 2, 2025",
       "logs": [
         {
-          "title": "Main Systen Changes:",
+          "title": "Main System Changes:",
           "items": [
             "Added an Experimental Github Update Detection System. (Checks every 3 minutes)",
             "Added Revert Version Feature. this reverts to the last update of Plutonium, this may be used if your having issues with the present."
