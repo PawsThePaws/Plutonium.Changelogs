@@ -1,6 +1,20 @@
 {
   "versions": [
     {
+      "id": "V3.8.0",
+      "date": "July 4, 2025",
+      "logs": [
+        {
+          "title": "Blade Ball Changes:",
+          "items": [
+            "Released The Rewrite, So much features that I dont want to list it all anymore."
+          ]
+        }
+      ],
+      "notes": "This isnt the full yet, im still gonna add new stuff but thats because everything is basically decent as we speak."
+    },
+
+    {
       "id": "V3.7.9",
       "date": "April 5, 2025",
       "logs": [
